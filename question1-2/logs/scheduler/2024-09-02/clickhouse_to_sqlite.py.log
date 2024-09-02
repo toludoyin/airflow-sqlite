@@ -8052,3 +8052,24 @@ NameError: name 'load_to_sqlite' is not defined
 [2024-09-02T13:55:59.609+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:55:59.609+0000] {dag.py:3211} INFO - Sync 1 DAGs
 [2024-09-02T13:55:59.622+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:55:59.622+0000] {dag.py:4138} INFO - Setting next_dagrun for clickhouse_to_sqlite to None, run_after=None
 [2024-09-02T13:55:59.633+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/clickhouse_to_sqlite.py took 0.331 seconds
+[2024-09-02T13:56:29.890+0000] {processor.py:186} INFO - Started process (PID=7274) to work on /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:56:29.892+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/clickhouse_to_sqlite.py for tasks to queue
+[2024-09-02T13:56:29.894+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:56:29.894+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:56:30.154+0000] {processor.py:925} INFO - DAG(s) 'clickhouse_to_sqlite' retrieved from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:56:30.169+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:56:30.169+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2024-09-02T13:56:30.190+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:56:30.190+0000] {dag.py:4138} INFO - Setting next_dagrun for clickhouse_to_sqlite to None, run_after=None
+[2024-09-02T13:56:30.205+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/clickhouse_to_sqlite.py took 0.358 seconds
+[2024-09-02T13:57:00.423+0000] {processor.py:186} INFO - Started process (PID=7282) to work on /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:00.426+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/clickhouse_to_sqlite.py for tasks to queue
+[2024-09-02T13:57:00.428+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:00.427+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:00.686+0000] {processor.py:925} INFO - DAG(s) 'clickhouse_to_sqlite' retrieved from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:00.700+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:00.700+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2024-09-02T13:57:00.711+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:00.711+0000] {dag.py:4138} INFO - Setting next_dagrun for clickhouse_to_sqlite to None, run_after=None
+[2024-09-02T13:57:00.723+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/clickhouse_to_sqlite.py took 0.316 seconds
+[2024-09-02T13:57:30.958+0000] {processor.py:186} INFO - Started process (PID=7290) to work on /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:30.961+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/clickhouse_to_sqlite.py for tasks to queue
+[2024-09-02T13:57:30.963+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:30.962+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:31.253+0000] {processor.py:925} INFO - DAG(s) 'clickhouse_to_sqlite' retrieved from /opt/airflow/dags/clickhouse_to_sqlite.py
+[2024-09-02T13:57:31.266+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:31.266+0000] {dag.py:3211} INFO - Sync 1 DAGs
+[2024-09-02T13:57:31.278+0000] {logging_mixin.py:190} INFO - [2024-09-02T13:57:31.278+0000] {dag.py:4138} INFO - Setting next_dagrun for clickhouse_to_sqlite to None, run_after=None
+[2024-09-02T13:57:31.290+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/clickhouse_to_sqlite.py took 0.352 seconds
