@@ -5,13 +5,13 @@
 This repo deploy a development Airflow instance with an SQLite metadata backend using Docker Compose. 
 
 Note: 
-* Question 1 - is available in data/question1.sql
+Question 1 - is available in data/question1.sql
 
-* Question 2 - dags folder
+Question 2 - dags folder
 - Read ClickHouse database
 - Load to SQLite
 
-* Question 3 - see question3/task2.py
+Question 3 - see question3/task2.py
 - Reads a JSON file.
 - Sniffs the schema of the JSON file.
 - Dumps the schema output to a specified directory.
