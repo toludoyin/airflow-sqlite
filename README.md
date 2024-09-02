@@ -5,6 +5,7 @@
 This repo deploy a development Airflow instance with an SQLite metadata backend using Docker Compose. 
 
 Note: 
+
 Question 1 - is available in data/question1.sql
 
 Question 2 - dags folder
