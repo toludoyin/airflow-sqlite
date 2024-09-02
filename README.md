@@ -15,9 +15,9 @@ Question 2 - dags folder
 Question 3 - see question3/task2.py
 - Reads a JSON file.
 - Sniffs the schema of the JSON file.
-- Dumps the schema output to a specified directory.
+- Dumps the schema output to specified directory.
 
-### Initial Setup
+### Docker Setup
 Run the `init.sh` script to create the supporting folders and `.env` file.
 - Make `init.sh` execute: ```chmod +x init.sh```
 - Run `init.sh`: ```./init.sh```
