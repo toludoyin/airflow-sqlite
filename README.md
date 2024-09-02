@@ -30,7 +30,7 @@ Run the `init.sh` script to create the supporting folders and `.env` file.
 ### Login to Airflow UI
 - Host `http://localhost:8585`
 - Login with the username and password. The default username and password are `airflow` and `airflow`, respectively.
-### Configure clickehouse and sqlite connection on airflow ui
+### Configure ClickeHouse and SQLite connection on Airflow UI
 - Go to the menu directory: Admin > Connections
 - Setup clickhouse_conn and sqlite connection
 
