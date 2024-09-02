@@ -6,13 +6,13 @@ This repo deploy a development Airflow instance with an SQLite metadata backend 
 
 Note: 
 
-Question 1 - is available in data/question1.sql
+Question 1 - is available in question1-2/data/question1.sql 
 
-Question 2 - dags folder
+Question 2 - question1-2/dags/clickhouse_to_sqlite.py
 - Read ClickHouse database
 - Load to SQLite
 
-Question 3 - see question3/task2.py
+Question 3 - see question3/task2/task2/generate_schema.py
 - Reads a JSON file.
 - Sniffs the schema of the JSON file.
 - Dumps the schema output to specified directory.
