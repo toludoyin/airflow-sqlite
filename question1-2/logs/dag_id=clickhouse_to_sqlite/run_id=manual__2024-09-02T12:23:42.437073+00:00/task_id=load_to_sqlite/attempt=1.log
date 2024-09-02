@@ -1,0 +1,20 @@
+[2024-09-02T12:23:55.885+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-02T12:23:55.889+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.load_to_sqlite manual__2024-09-02T12:23:42.437073+00:00 [queued]>
+[2024-09-02T12:23:55.891+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.load_to_sqlite manual__2024-09-02T12:23:42.437073+00:00 [queued]>
+[2024-09-02T12:23:55.892+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2024-09-02T12:23:55.896+0000] {taskinstance.py:2879} INFO - Executing <Task(_PythonDecoratedOperator): load_to_sqlite> on 2024-09-02 12:23:42.437073+00:00
+[2024-09-02T12:23:55.901+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=5596) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-09-02T12:23:55.902+0000] {standard_task_runner.py:72} INFO - Started process 5605 to run task
+[2024-09-02T12:23:55.902+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'load_to_sqlite', 'manual__2024-09-02T12:23:42.437073+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmplviy8zcd']
+[2024-09-02T12:23:55.903+0000] {standard_task_runner.py:105} INFO - Job 93: Subtask load_to_sqlite
+[2024-09-02T12:23:55.937+0000] {task_command.py:467} INFO - Running <TaskInstance: clickhouse_to_sqlite.load_to_sqlite manual__2024-09-02T12:23:42.437073+00:00 [running]> on host 50eb4647f9c4
+[2024-09-02T12:23:56.011+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='load_to_sqlite' AIRFLOW_CTX_EXECUTION_DATE='2024-09-02T12:23:42.437073+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-02T12:23:42.437073+00:00'
+[2024-09-02T12:23:56.011+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-02T12:23:56.015+0000] {base.py:84} INFO - Retrieving connection 'sqlite_conn'
+[2024-09-02T12:23:56.015+0000] {logging_mixin.py:190} INFO - An error occurred: near "0": syntax error
+[2024-09-02T12:23:56.015+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-09-02T12:23:56.017+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-02T12:23:56.017+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=clickhouse_to_sqlite, task_id=load_to_sqlite, run_id=manual__2024-09-02T12:23:42.437073+00:00, execution_date=20240902T122342, start_date=20240902T122355, end_date=20240902T122356
+[2024-09-02T12:23:56.054+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-09-02T12:23:56.060+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T12:23:56.060+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

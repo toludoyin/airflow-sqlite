@@ -1,0 +1,14 @@
+[2024-09-01T22:41:57.443+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse manual__2024-09-01T22:41:54.657350+00:00 [queued]>
+[2024-09-01T22:41:57.447+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse manual__2024-09-01T22:41:54.657350+00:00 [queued]>
+[2024-09-01T22:41:57.447+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-01T22:41:57.495+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 22:41:54.657350+00:00
+[2024-09-01T22:41:57.499+0000] {standard_task_runner.py:60} INFO - Started process 1362 to run task
+[2024-09-01T22:41:57.509+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'manual__2024-09-01T22:41:54.657350+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpddw4g359']
+[2024-09-01T22:41:57.517+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask data_from_clickhouse
+[2024-09-01T22:41:57.633+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse manual__2024-09-01T22:41:54.657350+00:00 [running]> on host 3ed24ff23853
+[2024-09-01T22:41:57.704+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T22:41:54.657350+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-01T22:41:54.657350+00:00'
+[2024-09-01T22:41:57.708+0000] {logging_mixin.py:188} INFO - 10
+[2024-09-01T22:41:57.708+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-09-01T22:41:57.713+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T224154, start_date=20240901T224157, end_date=20240901T224157
+[2024-09-01T22:41:57.748+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-01T22:41:57.754+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

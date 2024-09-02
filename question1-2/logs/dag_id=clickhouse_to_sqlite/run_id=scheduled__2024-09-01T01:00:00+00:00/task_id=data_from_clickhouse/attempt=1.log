@@ -1,0 +1,332 @@
+[2024-09-02T01:00:03.552+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:00:03.554+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:00:03.554+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T01:00:03.561+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T01:00:03.565+0000] {standard_task_runner.py:60} INFO - Started process 296 to run task
+[2024-09-02T01:00:03.567+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpz9zn7w5n']
+[2024-09-02T01:00:03.570+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask data_from_clickhouse
+[2024-09-02T01:00:03.602+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T01:00:03.652+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T01:00:08.302+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 33, in data_from_clickhouse
+    data = client.query(query).result_rows
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/client.py", line 209, in query
+    return self._query_with_context(query_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 225, in _query_with_context
+    response = self._raw_request(body,
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 454, in _raw_request
+    self._error_handler(response)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 377, in _error_handler
+    raise OperationalError(err_str) if retried else DatabaseError(err_str) from None
+clickhouse_connect.driver.exceptions.DatabaseError: HTTPDriver for https://github.demo.trial.altinity.cloud:8443 returned response code 400)
+ Code: 62. DB::Exception: Syntax error (Multi-statements are not allowed): failed at position 137 (end of query) (line 6, col 16): ;
+        
+ FORMAT Native. . (SYNTAX_ERROR) (version 24.5.6.45 (official build))
+
+[2024-09-02T01:00:08.342+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T010003, end_date=20240902T010008
+[2024-09-02T01:00:08.368+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 24 for task data_from_clickhouse (HTTPDriver for https://github.demo.trial.altinity.cloud:8443 returned response code 400)
+ Code: 62. DB::Exception: Syntax error (Multi-statements are not allowed): failed at position 137 (end of query) (line 6, col 16): ;
+        
+ FORMAT Native. . (SYNTAX_ERROR) (version 24.5.6.45 (official build))
+; 296)
+[2024-09-02T01:00:08.418+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T01:00:08.445+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T01:01:55.558+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:01:55.561+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:01:55.561+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T01:01:55.568+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T01:01:55.577+0000] {standard_task_runner.py:60} INFO - Started process 352 to run task
+[2024-09-02T01:01:55.586+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpvdjdf_a7']
+[2024-09-02T01:01:55.591+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask data_from_clickhouse
+[2024-09-02T01:01:55.649+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T01:01:55.706+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T01:01:58.894+0000] {python.py:201} INFO - Done. Returned value was: [(datetime.date(2014, 3, 1), 0, 'CMT', datetime.datetime(2014, 3, 1, 0, 0), datetime.datetime(2014, 3, 1, 0, 18, 53), 1, 5.0, -73.95813751220703, 40.73331069946289, '1', 'N', -74.00509643554688, 40.71891784667969, 'CSH', 18.5, '0.5', 0.5, 0.0, 0.0, 0.0, 19.5, 0, 0, '', ''), (datetime.date(2014, 3, 1), 0, 'CMT', datetime.datetime(2014, 3, 1, 0, 0), datetime.datetime(2014, 3, 1, 0, 15, 7), 1, 3.799999952316284, -73.95594024658203, 40.778995513916016, '1', 'N', -73.97958374023438, 40.7330207824707, 'CSH', 14.0, '0.5', 0.5, 0.0, 0.0, 0.0, 15.0, 0, 0, '', ''), (datetime.date(2014, 3, 1), 0, 'CMT', datetime.datetime(2014, 3, 1, 0, 0), datetime.datetime(2014, 3, 1, 0, 26, 1), 1, 2.8999998569488525, -73.96636962890625, 40.764827728271484, '1', 'N', -74.0075454711914, 40.70560073852539, 'CRD', 11.0, '0.5', 0.5, 1.5, 0.0, 0.0, 13.5, 0, 0, '', ''), (datetime.date(2014, 3, 1), 0, 'CMT', datetime.datetime(2014, 3, 1, 0, 0), datetime.datetime(2014, 3, 1, 0, 12, 49), 2, 2.700000047683716, -74.0106430053711, 40.70347595214844, '1', 'N', -74.00724029541016, 40.72739028930664, 'CRD', 12.0, '0.5', 0.5, 2.5999999046325684, 0.0, 0.0, 15.600000381469727, 0, 0, '', ''), (datetime.date(2014, 3, 1), 0, 'CMT', datetime.datetime(2014, 3, 1, 0, 0, 1), datetime.datetime(2014, 3, 1, 0, 10, 14), 1, 1.7999999523162842, -73.98543548583984, 40.763668060302734, '1', 'N', -73.98367309570312, 40.744667053222656, 'CRD', 9.0, '0.5', 0.5, 2.0, 0.0, 0.0, 12.0, 0, 0, '', '')]
+[2024-09-02T01:01:58.923+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T010155, end_date=20240902T010158
+[2024-09-02T01:01:58.982+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-02T01:01:58.999+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T01:20:45.789+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:20:45.792+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:20:45.792+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T01:20:45.799+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T01:20:45.803+0000] {standard_task_runner.py:60} INFO - Started process 686 to run task
+[2024-09-02T01:20:45.805+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpqh6fknd6']
+[2024-09-02T01:20:45.807+0000] {standard_task_runner.py:88} INFO - Job 30: Subtask data_from_clickhouse
+[2024-09-02T01:20:45.826+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T01:20:45.853+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T01:20:45.861+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffb35ea8b0>: Failed to establish a new connection: [Errno 111] Connection refused')': /?wait_end_of_query=1
+[2024-09-02T01:20:45.862+0000] {httpclient.py:439} WARNING - Unexpected Http Driver Exception
+[2024-09-02T01:20:45.862+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0xffffb35ea910>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 429, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/request.py", line 81, in request
+    return self.request_encode_body(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/request.py", line 173, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffb35ea910>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 23, in data_from_clickhouse
+    client = clickhouse_connect.get_client(
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/__init__.py", line 115, in create_client
+    return HttpClient(interface, host, port, username, password, database, settings=settings, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 153, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/client.py", line 67, in __init__
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 347, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 441, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffb35ea910>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (https://localhost:8443)
+[2024-09-02T01:20:45.872+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T012045, end_date=20240902T012045
+[2024-09-02T01:20:45.878+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 30 for task data_from_clickhouse (Error HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffb35ea910>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (https://localhost:8443); 686)
+[2024-09-02T01:20:45.901+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T01:20:45.907+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T01:32:02.799+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:32:02.802+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:32:02.802+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T01:32:02.810+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T01:32:02.818+0000] {standard_task_runner.py:60} INFO - Started process 900 to run task
+[2024-09-02T01:32:02.822+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpavkzt2ut']
+[2024-09-02T01:32:02.824+0000] {standard_task_runner.py:88} INFO - Job 33: Subtask data_from_clickhouse
+[2024-09-02T01:32:02.847+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T01:32:02.913+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T01:32:02.925+0000] {connectionpool.py:824} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=0, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffa03fc820>: Failed to establish a new connection: [Errno 111] Connection refused')': /?wait_end_of_query=1
+[2024-09-02T01:32:02.926+0000] {httpclient.py:439} WARNING - Unexpected Http Driver Exception
+[2024-09-02T01:32:02.926+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0xffffa03fc880>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 429, in _raw_request
+    response = self.http.request(method, url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/request.py", line 81, in request
+    return self.request_encode_body(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/request.py", line 173, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 827, in urlopen
+    return self.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffa03fc880>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 23, in data_from_clickhouse
+    client = clickhouse_connect.get_client(
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/__init__.py", line 115, in create_client
+    return HttpClient(interface, host, port, username, password, database, settings=settings, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 153, in __init__
+    super().__init__(database=database,
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/client.py", line 67, in __init__
+    tuple(self.command('SELECT version(), timezone()', use_database=False))
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 347, in command
+    response = self._raw_request(payload, params, headers, method, fields=fields)
+  File "/home/airflow/.local/lib/python3.8/site-packages/clickhouse_connect/driver/httpclient.py", line 441, in _raw_request
+    raise OperationalError(f'Error {ex} executing HTTP request attempt {attempts}{err_url}') from ex
+clickhouse_connect.driver.exceptions.OperationalError: Error HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffa03fc880>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (https://localhost:8443)
+[2024-09-02T01:32:02.936+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T013202, end_date=20240902T013202
+[2024-09-02T01:32:02.944+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 33 for task data_from_clickhouse (Error HTTPSConnectionPool(host='localhost', port=8443): Max retries exceeded with url: /?wait_end_of_query=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffffa03fc880>: Failed to establish a new connection: [Errno 111] Connection refused')) executing HTTP request attempt 1 (https://localhost:8443); 900)
+[2024-09-02T01:32:02.960+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T01:32:02.966+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T01:34:28.759+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:34:28.762+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T01:34:28.762+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T01:34:28.768+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T01:34:28.771+0000] {standard_task_runner.py:60} INFO - Started process 970 to run task
+[2024-09-02T01:34:28.773+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmpnvf2rico']
+[2024-09-02T01:34:28.774+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask data_from_clickhouse
+[2024-09-02T01:34:28.795+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T01:34:28.822+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T01:34:30.719+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 30, in data_from_clickhouse
+    with open(DATA_PATH.joinpath('Question 1.sql'), 'r') as sql_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/Question 1.sql'
+[2024-09-02T01:34:30.745+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T013428, end_date=20240902T013430
+[2024-09-02T01:34:30.758+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 36 for task data_from_clickhouse ([Errno 2] No such file or directory: '/opt/airflow/data/Question 1.sql'; 970)
+[2024-09-02T01:34:30.823+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T01:34:30.864+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T02:10:11.722+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:10:11.727+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:10:11.727+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T02:10:11.742+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T02:10:11.774+0000] {standard_task_runner.py:60} INFO - Started process 1607 to run task
+[2024-09-02T02:10:11.779+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmp0qvm2j7g']
+[2024-09-02T02:10:11.782+0000] {standard_task_runner.py:88} INFO - Job 42: Subtask data_from_clickhouse
+[2024-09-02T02:10:11.843+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T02:10:11.924+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T02:10:13.556+0000] {logging_mixin.py:188} INFO - /opt/airflow/data
+[2024-09-02T02:10:13.562+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 31, in data_from_clickhouse
+    with open(DATA_PATH.joinpath('Question_1.sql'), 'r') as sql_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/Question_1.sql'
+[2024-09-02T02:10:13.587+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T021011, end_date=20240902T021013
+[2024-09-02T02:10:13.606+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 42 for task data_from_clickhouse ([Errno 2] No such file or directory: '/opt/airflow/data/Question_1.sql'; 1607)
+[2024-09-02T02:10:13.655+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T02:10:13.674+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T02:11:18.204+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:11:18.207+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:11:18.207+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T02:11:18.213+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T02:11:18.221+0000] {standard_task_runner.py:60} INFO - Started process 1656 to run task
+[2024-09-02T02:11:18.225+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmp0xjqp3wn']
+[2024-09-02T02:11:18.228+0000] {standard_task_runner.py:88} INFO - Job 44: Subtask data_from_clickhouse
+[2024-09-02T02:11:18.262+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T02:11:18.290+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T02:11:18.291+0000] {logging_mixin.py:188} INFO - /opt/airflow/data
+[2024-09-02T02:11:18.291+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-09-02T02:11:18.293+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T021118, end_date=20240902T021118
+[2024-09-02T02:11:18.322+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-09-02T02:11:18.328+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T02:29:22.771+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:29:22.774+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T02:29:22.774+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-09-02T02:29:22.780+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T02:29:22.783+0000] {standard_task_runner.py:60} INFO - Started process 1997 to run task
+[2024-09-02T02:29:22.786+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmp3vnu_yye']
+[2024-09-02T02:29:22.787+0000] {standard_task_runner.py:88} INFO - Job 49: Subtask data_from_clickhouse
+[2024-09-02T02:29:22.808+0000] {task_command.py:423} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 49db2d0c7729
+[2024-09-02T02:29:22.844+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T02:29:24.600+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/clickhouse_to_sqlite.py", line 30, in data_from_clickhouse
+    with open(DATA_PATH.joinpath('Question_1.sql'), 'r') as sql_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/Question_1.sql'
+[2024-09-02T02:29:24.622+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, execution_date=20240901T010000, start_date=20240902T022922, end_date=20240902T022924
+[2024-09-02T02:29:24.639+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 49 for task data_from_clickhouse ([Errno 2] No such file or directory: '/opt/airflow/data/Question_1.sql'; 1997)
+[2024-09-02T02:29:24.694+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-09-02T02:29:24.731+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T06:59:54.691+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-02T06:59:54.698+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T06:59:54.700+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [queued]>
+[2024-09-02T06:59:54.700+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2024-09-02T06:59:54.715+0000] {taskinstance.py:2879} INFO - Executing <Task(_PythonDecoratedOperator): data_from_clickhouse> on 2024-09-01 01:00:00+00:00
+[2024-09-02T06:59:54.741+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=83) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-09-02T06:59:54.747+0000] {standard_task_runner.py:72} INFO - Started process 92 to run task
+[2024-09-02T06:59:54.743+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'clickhouse_to_sqlite', 'data_from_clickhouse', 'scheduled__2024-09-01T01:00:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/clickhouse_to_sqlite.py', '--cfg-path', '/tmp/tmp6kh6g9h_']
+[2024-09-02T06:59:54.754+0000] {standard_task_runner.py:105} INFO - Job 52: Subtask data_from_clickhouse
+[2024-09-02T06:59:54.853+0000] {task_command.py:467} INFO - Running <TaskInstance: clickhouse_to_sqlite.data_from_clickhouse scheduled__2024-09-01T01:00:00+00:00 [running]> on host 50eb4647f9c4
+[2024-09-02T06:59:54.947+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='clickhouse_to_sqlite' AIRFLOW_CTX_TASK_ID='data_from_clickhouse' AIRFLOW_CTX_EXECUTION_DATE='2024-09-01T01:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-01T01:00:00+00:00'
+[2024-09-02T06:59:54.951+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-02T07:00:01.140+0000] {python.py:240} INFO - Done. Returned value was: [(datetime.date(2014, 1, 1), 1966255.0, 11.35, 11.26, None, None, None), (datetime.date(2014, 2, 1), 2097205.0, 11.64, 11.96, None, None, None), (datetime.date(2014, 3, 1), 2763366.0, 11.88, 11.96, None, None, None), (datetime.date(2014, 4, 1), 2107383.0, 12.08, 12.49, None, None, None), (datetime.date(2014, 5, 1), 2503732.0, 12.53, 12.79, None, None, None), (datetime.date(2014, 6, 1), 1937191.0, 12.41, 12.36, None, None, None), (datetime.date(2014, 7, 1), 1649004.0, 12.23, 11.68, None, None, None), (datetime.date(2014, 8, 1), 2058580.0, 12.51, 12.32, None, None, None), (datetime.date(2014, 9, 1), 1996098.0, 12.48, 13.27, None, None, None), (datetime.date(2014, 10, 1), 1991476.0, 12.22, 12.75, None, None, None), (datetime.date(2014, 11, 1), 2496615.0, 12.25, 13.11, None, None, None), (datetime.date(2014, 12, 1), 1828137.0, 12.58, 13.65, None, None, None), (datetime.date(2015, 1, 1), 2379707.0, 11.36, 14.94, None, None, None), (datetime.date(2015, 2, 1), 1941834.0, 11.88, 15.02, None, None, None), (datetime.date(2015, 3, 1), 1979230.0, 12.07, 13.96, None, None, None), (datetime.date(2015, 4, 1), 1904302.0, 12.36, 6.47, None, None, None), (datetime.date(2015, 5, 1), 2290659.0, 12.59, 14.83, None, None, None), (datetime.date(2015, 6, 1), 1737535.0, 12.57, 14.48, None, None, None), (datetime.date(2015, 7, 1), 1452413.0, 12.39, 13.97, None, None, None), (datetime.date(2015, 8, 1), 1840117.0, 12.65, 14.1, None, None, None), (datetime.date(2015, 9, 1), 1635380.0, 12.73, 15.75, None, None, None), (datetime.date(2015, 10, 1), 2182425.0, 12.57, 15.67, None, None, None), (datetime.date(2015, 11, 1), 1674751.0, 12.4, 15.84, None, None, None), (datetime.date(2015, 12, 1), 1589990.0, 12.66, 1.21, None, None, None), (datetime.date(2016, 1, 1), 1644057.0, 12.02, 14.78, None, None, None), (datetime.date(2016, 2, 1), 1742814.0, 11.83, 18.15, None, None, None), (datetime.date(2016, 3, 1), 1739430.0, 12.13, 15.33, None, None, None), (datetime.date(2016, 4, 1), 2167135.0, 12.29, 15.63, None, None, None), (datetime.date(2016, 5, 1), 1634289.0, 12.61, 15.76, None, None, None), (datetime.date(2016, 6, 1), 1568075.0, 12.68, 16.01, None, None, None), (datetime.date(2016, 7, 1), 1649036.0, 12.79, 15.82, None, None, None), (datetime.date(2016, 8, 1), 1286470.0, 13.05, 16.13, None, None, None), (datetime.date(2016, 9, 1), 1415808.0, 13.47, 17.21, None, None, None), (datetime.date(2016, 10, 1), 1920048.0, 12.92, 17.16, None, None, None), (datetime.date(2016, 11, 1), 1456675.0, 12.71, 16.82, None, None, None), (datetime.date(2016, 12, 1), 1741675.0, 12.39, 16.01, None, None, None)]
+[2024-09-02T07:00:01.179+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-02T07:00:01.180+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=clickhouse_to_sqlite, task_id=data_from_clickhouse, run_id=scheduled__2024-09-01T01:00:00+00:00, execution_date=20240901T010000, start_date=20240902T065954, end_date=20240902T070001
+[2024-09-02T07:00:01.223+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-09-02T07:00:01.232+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-09-02T07:00:01.233+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
